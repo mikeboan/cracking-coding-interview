@@ -4,7 +4,8 @@ def is_rotation?(string, rotated)
 end
 
 
-# true if str1 is substring of str2
+# true if substr is substring of search_text
+# O(n) time, O(n) memory
 def is_substring?(search_text, substr)
   first_char_locations = []
 
