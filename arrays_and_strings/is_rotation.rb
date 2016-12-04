@@ -1,4 +1,3 @@
-require 'byebug'
 # true if str2 is a rotation of string1
 def is_rotation?(string, rotated)
   is_substring?(rotated + rotated, string)
