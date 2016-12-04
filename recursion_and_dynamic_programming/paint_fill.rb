@@ -1,4 +1,3 @@
-require 'byebug'
 # given a 'sreen' (2-D array of colors), a point, and a new color, fill in
 # the surrounding area until the color changes from the original color
 # (similar to paint bucket tool in MS paint and similar)
@@ -11,7 +10,6 @@ def paint_fill(screen, point, new_color)
     current_point = to_fill.shift
     screen[current_point[0]][current_point[1]] = new_color
     neighbors(current_point, screen.length, screen.first.length).each do |neighbor|
-      # debugger
       if !seen[neighbor] && color(neighbor, screen) == old_color
         to_fill.push(neighbor)
         seen[neighbor] = true

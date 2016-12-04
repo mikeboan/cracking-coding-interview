@@ -17,7 +17,7 @@ def is_substring?(search_text, substr)
     while search_text[i] == substr[j] do
       i += 1
       j += 1
-      return true if j == substr.length - 1
+      return true if j == substr.length
     end
   end
 

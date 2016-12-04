@@ -4,9 +4,8 @@
 # array is not sorted
 
 def find_dup(arr, max, min = 1, i = 0, j = arr.length - 1)
+  return if i == j
 
-  p arr.slice(i, j - i + 1)
-  # return if i == j
   if i == j - 1
     if arr[i] == arr[j]
       return arr[i]
@@ -18,23 +17,18 @@ def find_dup(arr, max, min = 1, i = 0, j = arr.length - 1)
   mid = (min + max) / 2
   prev_i = i
   prev_j = j
-  count = 0
   until i == j do
-    count += 1
-    if arr[i] == arr[i + 1]
-      # p arr
-      return arr[i]
-    elsif arr[i] > mid
+    return arr[i] if arr[i] == arr[i + 1]
+    if arr[i] > mid
       swap(i, j, arr)
       j -= 1
     else
       i += 1
     end
   end
-  # puts count
+
   # recursive search
   return find_dup(arr, mid, min, prev_i, i) || find_dup(arr, max, mid + 1, i, prev_j)
-
 end
 
 def swap(i, j, arr)
@@ -44,5 +38,5 @@ def swap(i, j, arr)
 end
 
 
-arr = [4, 3, 7, 6, 9, 2, 6, 5]
-puts find_dup(arr, 9)# == 3
+arr = [8,7,9,10,11,15,14,9]
+puts find_dup(arr, arr.max)
